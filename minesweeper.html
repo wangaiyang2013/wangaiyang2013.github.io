@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>扫雷 · Aiyang 的小游戏</title>
+  <link rel="stylesheet" href="minesweeper.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">Aiyang<span class="dot">.</span></a>
+      <nav class="nav-links">
+        <a href="index.html#about">关于</a>
+        <a href="index.html#posts">文章</a>
+        <a href="minesweeper.html" style="color:var(--accent)">扫雷</a>
+        <a href="index.html#contact">联系</a>
+      </nav>
+      <a class="btn-back" href="index.html">← 返回博客</a>
+    </div>
+  </header>
+
+  <main class="game">
+    <h1 class="game-title">💣 扫雷 Minesweeper</h1>
+    <p class="game-sub">左键翻开 · 右键插旗 · 在数字上左右键齐点可快速展开</p>
+
+    <div class="controls">
+      <div class="diff-group">
+        <button class="diff active" data-level="beginner">初级 9×9</button>
+        <button class="diff" data-level="intermediate">中级 16×16</button>
+        <button class="diff" data-level="expert">高级 16×30</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="counter" id="mineCount">010</div>
+      <button class="reset" id="reset" aria-label="重新开始">🙂</button>
+      <div class="counter" id="timer">000</div>
+    </div>
+
+    <p class="msg" id="msg">点任意格子开始，第一下保证安全～</p>
+
+    <div class="board-wrap">
+      <div class="board" id="board"></div>
+    </div>
+
+    <p class="hint">提示：雷数 = 剩余需插旗数。全清非雷格即获胜 🎉</p>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Aiyang · 扫雷小游戏 · 由 cash 🐶 协助搭建</p>
+  </footer>
+
+  <script src="minesweeper.js"></script>
+</body>
+</html>
