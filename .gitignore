@@ -1,0 +1,6 @@
+# WorkBuddy 内部数据，不入库
+.workbuddy/
+
+# 系统/编辑器垃圾
+.DS_Store
+*.log

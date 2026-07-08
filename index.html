@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aiyang · 个人博客</title>
+  <meta name="description" content="Aiyang 的个人博客 —— 记录技术、生活与一点点思考。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#top">Aiyang<span class="dot">.</span></a>
+      <nav class="nav-links">
+        <a href="#about">关于</a>
+        <a href="#posts">文章</a>
+        <a href="#projects">作品</a>
+        <a href="#contact">联系</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="切换主题">🌗</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="hero-kicker">你好，我是</p>
+      <h1 class="hero-title">Aiyang</h1>
+      <p class="hero-sub">写代码、折腾工具、偶尔发呆。这里收着我的笔记、项目和一些不成熟的想法。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#posts">读读文章</a>
+        <a class="btn btn-ghost" href="#about">了解我</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title">关于我</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>我是 Aiyang，一个喜欢把事情做顺手的人。日常在 Mac mini（Apple M4）上敲键盘，网络走本地代理，工具能自动化就绝不手动。</p>
+          <p>关注的方向不多但都挺较真：前端体验、终端效率、还有怎么让 AI 真正帮上忙而不是添乱。平时写点技术复盘，也记点生活碎片。</p>
+          <p>这台机器上还住着我的 AI 搭子 <strong>cash</strong> 🐶 —— 一只说话幽默、该认真时不糊弄的电子大狗。本博客有不少内容是我们一起折腾出来的。</p>
+        </div>
+        <ul class="about-facts">
+          <li><span>🖥️</span> Mac mini · Apple M4 · 16GB</li>
+          <li><span>🛠️</span> 前端 / 终端效率 / 自动化</li>
+          <li><span>📍</span> 常驻：待补充</li>
+          <li><span>🐶</span> AI 搭子：cash</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="posts" class="section">
+      <h2 class="section-title">最新文章</h2>
+      <div class="post-grid" id="postGrid"></div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title">作品 & 项目</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <h3>本博客</h3>
+          <p>你正在看的这个站点的源码。纯静态、零依赖、可一键部署，主题还能一键切换。</p>
+          <span class="tag">静态站</span><span class="tag">部署即上线</span>
+        </article>
+        <article class="project-card">
+          <h3>日常任务节奏</h3>
+          <p>用定时提醒把一天切成 9:30 / 13:30 / 18:30 三个锚点，靠 todo.md 管理，跑得很稳。</p>
+          <span class="tag">自动化</span><span class="tag">效率</span>
+        </article>
+        <article class="project-card">
+          <h3>cash 工作流</h3>
+          <p>给 AI 搭子立规矩：中文、友好、交互确认、结构化指令。体验比想象中顺。</p>
+          <span class="tag">AI</span><span class="tag">协作</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2 class="section-title">联系我</h2>
+      <p class="contact-text">有想法想聊，或者想看看我最近在折腾什么，欢迎找我：</p>
+      <ul class="contact-list">
+        <li>📮 邮箱：<a href="mailto:aiyangwang@example.com">aiyangwang@example.com</a></li>
+        <li>🐙 GitHub：<a href="#">@aiyangwang</a></li>
+        <li>💬 微信：待补充</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Aiyang · 由 cash 🐶 协助搭建 · 用 ☕ 与好奇心驱动</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
