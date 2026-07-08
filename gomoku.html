@@ -23,7 +23,12 @@
 
   <main class="game">
     <h1 class="game-title">⚫⚪ 五子棋 Gomoku</h1>
-    <p class="game-sub">你执黑先手，AI 执白 · 点空格落子，先连成五子者胜</p>
+    <p class="game-sub" id="sub">你执黑先手，AI 执白 · 点空格落子，先连成五子者胜</p>
+
+    <div class="modes">
+      <button class="mode-btn active" data-mode="ai">🤖 人机对战</button>
+      <button class="mode-btn" data-mode="pvp">👥 双人对战</button>
+    </div>
 
     <div class="panel">
       <div class="status" id="status">轮到你了（黑）</div>

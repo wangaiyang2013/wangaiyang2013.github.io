@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>俄罗斯方块 · Aiyang 的小游戏</title>
+  <link rel="stylesheet" href="games.css" />
+  <link rel="stylesheet" href="tetris.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">Aiyang<span class="dot">.</span></a>
+      <nav class="nav-links">
+        <a href="index.html#about">关于</a>
+        <a href="index.html#posts">文章</a>
+        <a href="games.html" class="active">游戏角</a>
+        <a href="index.html#contact">联系</a>
+      </nav>
+      <a class="btn-back" href="index.html">← 返回博客</a>
+    </div>
+  </header>
+
+  <main class="game">
+    <h1 class="game-title">🧱 俄罗斯方块 Tetris</h1>
+    <p class="game-sub">方向键移动 / 旋转（↑）/ 加速（↓）/ 直接落底（空格）· 手机用下方按钮</p>
+
+    <div class="t-layout">
+      <div class="t-board-wrap">
+        <canvas id="board" width="280" height="560"></canvas>
+        <div class="t-overlay" id="overlay">
+          <div class="t-overlay-box">
+            <div class="t-overlay-title" id="overlayTitle">俄罗斯方块</div>
+            <div class="t-overlay-sub" id="overlaySub">按 开始 或方向键开局</div>
+            <button class="t-btn-main" id="startBtn">开始游戏</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="t-side">
+        <div class="t-stat"><span>得分</span><b id="score">0</b></div>
+        <div class="t-stat"><span>行数</span><b id="lines">0</b></div>
+        <div class="t-stat"><span>等级</span><b id="level">1</b></div>
+
+        <div class="t-next">
+          <span class="t-next-label">下一个</span>
+          <canvas id="next" width="100" height="100"></canvas>
+        </div>
+
+        <button class="t-btn-pause" id="pauseBtn">暂停</button>
+
+        <div class="t-touch">
+          <button data-act="left">◀</button>
+          <button data-act="rotate">⟳</button>
+          <button data-act="right">▶</button>
+          <button data-act="soft">▼</button>
+          <button data-act="hard">⤓</button>
+        </div>
+      </aside>
+    </div>
+
+    <p class="hint">小提示：消 4 行（Tetris）得分最高；每消 10 行升一级，下落更快。最高分会记在本地。</p>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Aiyang · 俄罗斯方块 · 由 cash 🐶 协助搭建</p>
+  </footer>
+
+  <script src="tetris.js"></script>
+</body>
+</html>

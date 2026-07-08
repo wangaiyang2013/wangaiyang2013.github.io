@@ -5,12 +5,14 @@
   const ctx = canvas.getContext("2d");
   const statusEl = document.getElementById("status");
   const resetBtn = document.getElementById("reset");
+  const subEl = document.getElementById("sub");
+  const modeBtns = document.querySelectorAll(".mode-btn");
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
   const N = 15, PAD = 15, CELL = (canvas.width - 2 * PAD) / (N - 1);
   const BLACK = 1, WHITE = 2;
-  let board, current, gameOver, lock;
+  let board, current, gameOver, lock, mode = "ai";
 
   function px(i) { return PAD + i * CELL; }
 
@@ -19,7 +21,8 @@
     current = BLACK; // 玩家先手
     gameOver = false;
     lock = false;
-    setStatus("轮到你了（黑）");
+    if (mode === "ai") setStatus("轮到你了（黑）");
+    else setStatus("黑方落子（玩家一）");
     draw();
   }
 
@@ -143,7 +146,8 @@
   }
 
   function onBoard(e) {
-    if (gameOver || lock || current !== BLACK) return;
+    if (gameOver || lock) return;
+    if (mode === "ai" && current !== BLACK) return; // 人机模式：玩家只能下黑
     const rect = canvas.getBoundingClientRect();
     const x = (e.clientX - rect.left) * (canvas.width / rect.width);
     const y = (e.clientY - rect.top) * (canvas.height / rect.height);
@@ -151,12 +155,34 @@
     const r = Math.round((y - PAD) / CELL);
     if (r < 0 || r >= N || c < 0 || c >= N || board[r][c] !== 0) return;
 
-    place(r, c, BLACK);
-    if (winAt(r, c, BLACK)) { gameOver = true; setStatus("你赢了！🎉（黑）"); return; }
+    const player = current;
+    place(r, c, player);
+    if (winAt(r, c, player)) {
+      gameOver = true;
+      setStatus(player === BLACK ? "黑方胜利！🎉" : (mode === "ai" ? "AI 赢了（白）😎" : "白方胜利！🎉"));
+      return;
+    }
 
-    current = WHITE; lock = true; setStatus("AI 思考中…");
-    setTimeout(aiMove, 220);
+    if (mode === "ai") {
+      current = WHITE; lock = true; setStatus("AI 思考中…");
+      setTimeout(aiMove, 220);
+    } else {
+      current = player === BLACK ? WHITE : BLACK;
+      setStatus(current === BLACK ? "黑方落子（玩家一）" : "白方落子（玩家二）");
+    }
   }
+
+  modeBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      modeBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      mode = btn.dataset.mode;
+      subEl.textContent = mode === "ai"
+        ? "你执黑先手，AI 执白 · 点空格落子，先连成五子者胜"
+        : "同一台设备两人轮流落子 · 黑方（玩家一）先手，先连五子者胜";
+      reset();
+    });
+  });
 
   canvas.addEventListener("click", onBoard);
   resetBtn.addEventListener("click", reset);
