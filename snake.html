@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>贪吃蛇 · Aiyang 的小游戏</title>
+  <link rel="stylesheet" href="games.css" />
+  <link rel="stylesheet" href="snake.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">Aiyang<span class="dot">.</span></a>
+      <nav class="nav-links">
+        <a href="index.html#about">关于</a>
+        <a href="index.html#posts">文章</a>
+        <a href="games.html" class="active">游戏角</a>
+        <a href="index.html#contact">联系</a>
+      </nav>
+      <a class="btn-back" href="index.html">← 返回博客</a>
+    </div>
+  </header>
+
+  <main class="game">
+    <h1 class="game-title">🐍 贪吃蛇 Snake</h1>
+    <p class="game-sub">方向键 / WASD 控制 · 手机滑动屏幕 · 吃到果子变长加速</p>
+
+    <div class="panel">
+      <div class="counter" id="score">0</div>
+      <button class="reset" id="reset" aria-label="重新开始">🔄</button>
+      <div class="counter" id="best">最高 0</div>
+    </div>
+
+    <div class="board-wrap">
+      <canvas id="board" width="400" height="400"></canvas>
+      <div class="overlay" id="overlay">
+        <div class="overlay-box">
+          <p id="overlayText">准备好了吗？</p>
+          <button class="start-btn" id="startBtn">开始游戏</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="hint">提示：别撞墙也别咬到自己。暂停按空格。</p>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Aiyang · 贪吃蛇 · 由 cash 🐶 协助搭建</p>
+  </footer>
+
+  <script src="snake.js"></script>
+</body>
+</html>

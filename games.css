@@ -1,0 +1,74 @@
+:root {
+  --bg: #fafaf8;
+  --bg-soft: #f1efe9;
+  --surface: #ffffff;
+  --text: #1f1d1a;
+  --text-soft: #6b6660;
+  --accent: #e2603f;
+  --accent-soft: #fbe9e3;
+  --border: #e7e3db;
+  --panel: #2b2824;
+  --panel-text: #ff5a3c;
+  --board-bg: #efece6;
+  --maxw: 980px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16151a;
+    --bg-soft: #1e1c23;
+    --surface: #211f27;
+    --text: #f2efe9;
+    --text-soft: #a39d94;
+    --accent: #ff7a55;
+    --accent-soft: #3a241d;
+    --border: #322f3a;
+    --panel: #0e0d10;
+    --panel-text: #ff7a55;
+    --board-bg: #232029;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  transition: background .25s ease, color .25s ease;
+}
+
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 14px 24px;
+  display: flex; align-items: center; gap: 16px;
+}
+.logo { font-weight: 800; font-size: 20px; color: var(--text); letter-spacing: -.5px; }
+.logo .dot { color: var(--accent); }
+.nav-links { margin-left: auto; display: flex; gap: 22px; }
+.nav-links a { color: var(--text-soft); font-size: 15px; font-weight: 500; }
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--accent); }
+.btn-back {
+  font-size: 14px; font-weight: 600; color: var(--text);
+  border: 1px solid var(--border); background: var(--surface);
+  padding: 7px 14px; border-radius: 10px;
+}
+.btn-back:hover { text-decoration: none; border-color: var(--accent); }
+
+.game { max-width: var(--maxw); margin: 0 auto; padding: 48px 24px 32px; text-align: center; }
+.game-title { font-size: clamp(28px, 6vw, 42px); font-weight: 900; letter-spacing: -1px; }
+.game-sub { color: var(--text-soft); margin: 8px 0 24px; font-size: 15px; }
+
+.footer { max-width: var(--maxw); margin: 0 auto; padding: 24px 24px 48px; color: var(--text-soft); font-size: 14px; text-align: center; }
+
+@media (max-width: 560px) {
+  .nav-links { display: none; }
+}

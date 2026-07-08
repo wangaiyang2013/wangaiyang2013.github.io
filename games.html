@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>游戏角 · Aiyang 的小游戏</title>
+  <link rel="stylesheet" href="games.css" />
+  <style>
+    .cards {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px; margin-top: 8px;
+    }
+    .card {
+      display: block; text-align: left; color: inherit; text-decoration: none;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 22px; box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); text-decoration: none; }
+    .card .emoji { font-size: 34px; }
+    .card h3 { font-size: 19px; font-weight: 700; margin: 10px 0 8px; }
+    .card p { color: var(--text-soft); font-size: 14px; }
+    .card .go { margin-top: 14px; font-size: 13px; font-weight: 600; color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="index.html">Aiyang<span class="dot">.</span></a>
+      <nav class="nav-links">
+        <a href="index.html#about">关于</a>
+        <a href="index.html#posts">文章</a>
+        <a href="games.html" class="active">游戏角</a>
+        <a href="index.html#contact">联系</a>
+      </nav>
+      <a class="btn-back" href="index.html">← 返回博客</a>
+    </div>
+  </header>
+
+  <main class="game">
+    <h1 class="game-title">🎮 游戏角 Game Corner</h1>
+    <p class="game-sub">逛博客逛累了？挑一个摸鱼吧——全部免费、无需登录、手机也能玩</p>
+
+    <div class="cards">
+      <a class="card" href="minesweeper.html">
+        <div class="emoji">💣</div>
+        <h3>扫雷</h3>
+        <p>经典扫雷，三档难度，首点安全，右键插旗。</p>
+        <div class="go">开始 →</div>
+      </a>
+      <a class="card" href="snake.html">
+        <div class="emoji">🐍</div>
+        <h3>贪吃蛇</h3>
+        <p>方向键 / WASD / 滑动控制，吃果子变长加速。</p>
+        <div class="go">开始 →</div>
+      </a>
+      <a class="card" href="gomoku.html">
+        <div class="emoji">⚫⚪</div>
+        <h3>五子棋</h3>
+        <p>你执黑先手，对战启发式 AI，先连五子者胜。</p>
+        <div class="go">开始 →</div>
+      </a>
+      <a class="card" href="2048.html">
+        <div class="emoji">🔢</div>
+        <h3>2048</h3>
+        <p>滑动合并数字，挑战凑出 2048 方块。</p>
+        <div class="go">开始 →</div>
+      </a>
+    </div>
+
+    <p class="hint">更多小游戏正在路上，有想玩的告诉我～</p>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Aiyang · 游戏角 · 由 cash 🐶 协助搭建</p>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
